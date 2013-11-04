@@ -58,6 +58,17 @@
 	return self;
 }
 
+- (id)initWithFilename:(NSString*)filename {
+	NSData *svgxml = [[NSData alloc] initWithContentsOfFile:filename];
+	
+	self = [self initWithData:svgxml];
+	if (self) {
+		
+	}
+	return self;
+}
+
+
 - (void)drawRect:(CGRect)dirtyRect {
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSaveGState(context);
@@ -72,10 +83,10 @@
 	CGContextRestoreGState(context);
 }
 
-- (id)initWithAttributes:(NSDictionary *)attributeDict {
-	return nil;
-}
-
+//- (id)initWithAttributes:(NSDictionary *)attributeDict {
+//	return nil;
+//}
+//
 - (void)dealloc {
 	elements = nil;
 	containerStack = nil;

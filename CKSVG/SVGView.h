@@ -43,5 +43,6 @@
 @property (nonatomic, assign) CGRect normalFrame;
 
 - (id)initWithData:(NSData *)data;
+- (id)initWithFilename:(NSString*)filename;
 
 @end

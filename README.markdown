@@ -9,6 +9,19 @@ CKSVG is the beginnings of a Cocoa SVG parser and drawer (using Core Graphics) t
 
 ##Usage
 
+First import the library:
+
+>#import <SVG.h>
+
+Next initialize an SVGView
+
+> NSString *filename = @"path to svg file";
+> SVGView *svgview = [[SVGView alloc] initWithFilename:filename];
+
+Add the view to some other view hierarchy
+
+> svgview.frame = aView.bounds; // setup the svg view frame
+> [aView addSubview:svgview];
 
 ##License
 
