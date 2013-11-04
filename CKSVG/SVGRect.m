@@ -75,12 +75,10 @@
 	if (ryStr)
 		ry = [ryStr floatValue];
 	
-	CGMutablePathRef path = CGPathCreateMutable();
-	self.path = path;
-	CGPathRelease(path);
+	[self makeMutablePath];
 	
 	if ((rx == 0.0f) && (ry == 0.0f)) {
-		CGPathAddRect(self.path, nil, rect);
+		CGPathAddRect(self.path, NULL, rect);
 		CGPathCloseSubpath(self.path);
 	}
 	else

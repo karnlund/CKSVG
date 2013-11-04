@@ -84,7 +84,9 @@
 {
 	CGMutablePathRef temp = path;
 	path = CGPathCreateMutable();
-	CGPathRelease(temp);
+
+	if (temp)
+		CGPathRelease(temp);
 }
 
 - (void)drawRect:(CGRect)dirtyRect {

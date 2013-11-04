@@ -23,6 +23,18 @@
 		0B982F2A18272EA800D4FD76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982F2918272EA800D4FD76 /* UIKit.framework */; };
 		0B982F3018272EA800D4FD76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B982F2E18272EA800D4FD76 /* InfoPlist.strings */; };
 		0B982F3218272EA800D4FD76 /* SVGiOS_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B982F3118272EA800D4FD76 /* SVGiOS_Tests.m */; };
+		0B982F3A182731F400D4FD76 /* TwitterBird.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0B982F39182731F400D4FD76 /* TwitterBird.svg */; };
+		0B982F3B1827364000D4FD76 /* SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F49F31090FDE60009B6BB /* SVG.m */; };
+		0B982F3C1827364700D4FD76 /* SVGElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB137D31091A34B00ACE350 /* SVGElement.m */; };
+		0B982F3D1827364700D4FD76 /* SVGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F486B1090E3370009B6BB /* SVGView.m */; };
+		0B982F3E1827364700D4FD76 /* SVGDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB138041091A5ED00ACE350 /* SVGDocument.m */; };
+		0B982F3F1827364700D4FD76 /* SVGGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F48ED1090EF340009B6BB /* SVGGroup.m */; };
+		0B982F401827364700D4FD76 /* SVGPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F49481090F37C0009B6BB /* SVGPath.m */; };
+		0B982F411827364700D4FD76 /* SVGPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B982F0F18270DD100D4FD76 /* SVGPolygon.m */; };
+		0B982F421827364700D4FD76 /* SVGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B982F1118270DD100D4FD76 /* SVGRect.m */; };
+		0B982F431827365F00D4FD76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982EFF18270D7A00D4FD76 /* CoreGraphics.framework */; };
+		0B982F441827366300D4FD76 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982EFD18270D7200D4FD76 /* QuartzCore.framework */; };
+		0B982F451827366900D4FD76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982EFB18270D6600D4FD76 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +81,7 @@
 		0B982F2F18272EA800D4FD76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0B982F3118272EA800D4FD76 /* SVGiOS_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVGiOS_Tests.m; sourceTree = "<group>"; };
 		0B982F3318272EA800D4FD76 /* SVGiOS Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SVGiOS Tests-Prefix.pch"; sourceTree = "<group>"; };
-		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		0B982F39182731F400D4FD76 /* TwitterBird.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwitterBird.svg; sourceTree = "<group>"; };
 		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8B3F486A1090E3370009B6BB /* SVGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGView.h; sourceTree = "<group>"; };
 		8B3F486B1090E3370009B6BB /* SVGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGView.m; sourceTree = "<group>"; };
@@ -101,6 +113,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B982F441827366300D4FD76 /* QuartzCore.framework in Frameworks */,
+				0B982F451827366900D4FD76 /* Foundation.framework in Frameworks */,
+				0B982F431827365F00D4FD76 /* CoreGraphics.framework in Frameworks */,
 				0B982F2618272EA800D4FD76 /* XCTest.framework in Frameworks */,
 				0B982F2A18272EA800D4FD76 /* UIKit.framework in Frameworks */,
 				0B982F2818272EA800D4FD76 /* Foundation.framework in Frameworks */,
@@ -115,6 +130,7 @@
 			children = (
 				0B982F3118272EA800D4FD76 /* SVGiOS_Tests.m */,
 				0B982F2C18272EA800D4FD76 /* Supporting Files */,
+				0B982F39182731F400D4FD76 /* TwitterBird.svg */,
 			);
 			path = "SVGiOS Tests";
 			sourceTree = "<group>";
@@ -136,7 +152,6 @@
 				0B982EFF18270D7A00D4FD76 /* CoreGraphics.framework */,
 				0B982EFD18270D7200D4FD76 /* QuartzCore.framework */,
 				0B982EFB18270D6600D4FD76 /* Foundation.framework */,
-				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -294,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B982F3018272EA800D4FD76 /* InfoPlist.strings in Resources */,
+				0B982F3A182731F400D4FD76 /* TwitterBird.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +335,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B982F3B1827364000D4FD76 /* SVG.m in Sources */,
 				0B982F3218272EA800D4FD76 /* SVGiOS_Tests.m in Sources */,
+				0B982F401827364700D4FD76 /* SVGPath.m in Sources */,
+				0B982F3F1827364700D4FD76 /* SVGGroup.m in Sources */,
+				0B982F3E1827364700D4FD76 /* SVGDocument.m in Sources */,
+				0B982F3C1827364700D4FD76 /* SVGElement.m in Sources */,
+				0B982F421827364700D4FD76 /* SVGRect.m in Sources */,
+				0B982F3D1827364700D4FD76 /* SVGView.m in Sources */,
+				0B982F411827364700D4FD76 /* SVGPolygon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
