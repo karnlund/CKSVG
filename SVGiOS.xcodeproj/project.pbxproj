@@ -7,32 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B982EEC18270D0700D4FD76 /* libSVGiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982ED618270D0700D4FD76 /* libSVGiOS.a */; };
-		0B982EF218270D0700D4FD76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B982EF018270D0700D4FD76 /* InfoPlist.strings */; };
-		0B982EF418270D0700D4FD76 /* SVGiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B982EF318270D0700D4FD76 /* SVGiOSTests.m */; };
 		0B982EFC18270D6600D4FD76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982EFB18270D6600D4FD76 /* Foundation.framework */; };
 		0B982EFE18270D7200D4FD76 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982EFD18270D7200D4FD76 /* QuartzCore.framework */; };
 		0B982F0018270D7A00D4FD76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982EFF18270D7A00D4FD76 /* CoreGraphics.framework */; };
 		0B982F0118270D9400D4FD76 /* SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F49F31090FDE60009B6BB /* SVG.m */; };
-		0B982F0218270D9500D4FD76 /* SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F49F31090FDE60009B6BB /* SVG.m */; };
 		0B982F0318270D9700D4FD76 /* SVGElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB137D31091A34B00ACE350 /* SVGElement.m */; };
-		0B982F0418270D9800D4FD76 /* SVGElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB137D31091A34B00ACE350 /* SVGElement.m */; };
 		0B982F0518270D9C00D4FD76 /* SVGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F486B1090E3370009B6BB /* SVGView.m */; };
-		0B982F0618270D9E00D4FD76 /* SVGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F486B1090E3370009B6BB /* SVGView.m */; };
 		0B982F0818270DB500D4FD76 /* SVGDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB138041091A5ED00ACE350 /* SVGDocument.m */; };
-		0B982F0918270DB500D4FD76 /* SVGDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB138041091A5ED00ACE350 /* SVGDocument.m */; };
 		0B982F0A18270DB900D4FD76 /* SVGGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F48ED1090EF340009B6BB /* SVGGroup.m */; };
-		0B982F0B18270DBA00D4FD76 /* SVGGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F48ED1090EF340009B6BB /* SVGGroup.m */; };
 		0B982F0C18270DBD00D4FD76 /* SVGPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F49481090F37C0009B6BB /* SVGPath.m */; };
-		0B982F0D18270DBD00D4FD76 /* SVGPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F49481090F37C0009B6BB /* SVGPath.m */; };
 		0B982F1418270DD100D4FD76 /* SVGPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B982F0F18270DD100D4FD76 /* SVGPolygon.m */; };
-		0B982F1518270DD100D4FD76 /* SVGPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B982F0F18270DD100D4FD76 /* SVGPolygon.m */; };
 		0B982F1618270DD100D4FD76 /* SVGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B982F1118270DD100D4FD76 /* SVGRect.m */; };
-		0B982F1718270DD100D4FD76 /* SVGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B982F1118270DD100D4FD76 /* SVGRect.m */; };
+		0B982F2618272EA800D4FD76 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982F2518272EA800D4FD76 /* XCTest.framework */; };
+		0B982F2818272EA800D4FD76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982F2718272EA800D4FD76 /* Foundation.framework */; };
+		0B982F2A18272EA800D4FD76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B982F2918272EA800D4FD76 /* UIKit.framework */; };
+		0B982F3018272EA800D4FD76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B982F2E18272EA800D4FD76 /* InfoPlist.strings */; };
+		0B982F3218272EA800D4FD76 /* SVGiOS_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B982F3118272EA800D4FD76 /* SVGiOS_Tests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0B982EEA18270D0700D4FD76 /* PBXContainerItemProxy */ = {
+		0B982F3418272EA800D4FD76 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
 			proxyType = 1;
@@ -57,10 +51,6 @@
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0B982ED618270D0700D4FD76 /* libSVGiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSVGiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B982EDB18270D0700D4FD76 /* SVGiOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SVGiOS-Prefix.pch"; path = "SVGiOS/SVGiOS-Prefix.pch"; sourceTree = "<group>"; };
-		0B982EE418270D0700D4FD76 /* SVGiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SVGiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B982EEF18270D0700D4FD76 /* SVGiOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SVGiOSTests-Info.plist"; sourceTree = "<group>"; };
-		0B982EF118270D0700D4FD76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0B982EF318270D0700D4FD76 /* SVGiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVGiOSTests.m; sourceTree = "<group>"; };
 		0B982EFB18270D6600D4FD76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		0B982EFD18270D7200D4FD76 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		0B982EFF18270D7A00D4FD76 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -70,6 +60,15 @@
 		0B982F1018270DD100D4FD76 /* SVGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGRect.h; sourceTree = "<group>"; };
 		0B982F1118270DD100D4FD76 /* SVGRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGRect.m; sourceTree = "<group>"; };
 		0B982F1C1827269000D4FD76 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		0B982F1D18272DC900D4FD76 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0B982F2418272EA800D4FD76 /* SVGiOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SVGiOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B982F2518272EA800D4FD76 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0B982F2718272EA800D4FD76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		0B982F2918272EA800D4FD76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		0B982F2D18272EA800D4FD76 /* SVGiOS Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SVGiOS Tests-Info.plist"; sourceTree = "<group>"; };
+		0B982F2F18272EA800D4FD76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0B982F3118272EA800D4FD76 /* SVGiOS_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVGiOS_Tests.m; sourceTree = "<group>"; };
+		0B982F3318272EA800D4FD76 /* SVGiOS Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SVGiOS Tests-Prefix.pch"; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8B3F486A1090E3370009B6BB /* SVGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGView.h; sourceTree = "<group>"; };
@@ -98,46 +97,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0B982EE118270D0700D4FD76 /* Frameworks */ = {
+		0B982F2118272EA800D4FD76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B982EEC18270D0700D4FD76 /* libSVGiOS.a in Frameworks */,
+				0B982F2618272EA800D4FD76 /* XCTest.framework in Frameworks */,
+				0B982F2A18272EA800D4FD76 /* UIKit.framework in Frameworks */,
+				0B982F2818272EA800D4FD76 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B982ED918270D0700D4FD76 /* SVGiOS */ = {
+		0B982F2B18272EA800D4FD76 /* SVGiOS Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0B982EDA18270D0700D4FD76 /* Supporting Files */,
+				0B982F3118272EA800D4FD76 /* SVGiOS_Tests.m */,
+				0B982F2C18272EA800D4FD76 /* Supporting Files */,
 			);
-			path = SVGiOS;
+			path = "SVGiOS Tests";
 			sourceTree = "<group>";
 		};
-		0B982EDA18270D0700D4FD76 /* Supporting Files */ = {
+		0B982F2C18272EA800D4FD76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0B982EED18270D0700D4FD76 /* SVGiOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				0B982EF318270D0700D4FD76 /* SVGiOSTests.m */,
-				0B982EEE18270D0700D4FD76 /* Supporting Files */,
-			);
-			path = SVGiOSTests;
-			sourceTree = "<group>";
-		};
-		0B982EEE18270D0700D4FD76 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0B982EEF18270D0700D4FD76 /* SVGiOSTests-Info.plist */,
-				0B982EF018270D0700D4FD76 /* InfoPlist.strings */,
+				0B982F2D18272EA800D4FD76 /* SVGiOS Tests-Info.plist */,
+				0B982F2E18272EA800D4FD76 /* InfoPlist.strings */,
+				0B982F3318272EA800D4FD76 /* SVGiOS Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -145,6 +132,7 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B982F1D18272DC900D4FD76 /* XCTest.framework */,
 				0B982EFF18270D7A00D4FD76 /* CoreGraphics.framework */,
 				0B982EFD18270D7200D4FD76 /* QuartzCore.framework */,
 				0B982EFB18270D6600D4FD76 /* Foundation.framework */,
@@ -157,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				0B982ED618270D0700D4FD76 /* libSVGiOS.a */,
-				0B982EE418270D0700D4FD76 /* SVGiOSTests.xctest */,
+				0B982F2418272EA800D4FD76 /* SVGiOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,8 +156,7 @@
 				8B3F494B1090F3860009B6BB /* CKSVG */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
-				0B982ED918270D0700D4FD76 /* SVGiOS */,
-				0B982EED18270D0700D4FD76 /* SVGiOSTests */,
+				0B982F2B18272EA800D4FD76 /* SVGiOS Tests */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
 			);
@@ -199,6 +186,9 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				0B982F2518272EA800D4FD76 /* XCTest.framework */,
+				0B982F2718272EA800D4FD76 /* Foundation.framework */,
+				0B982F2918272EA800D4FD76 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,22 +237,22 @@
 			productReference = 0B982ED618270D0700D4FD76 /* libSVGiOS.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		0B982EE318270D0700D4FD76 /* SVGiOSTests */ = {
+		0B982F2318272EA800D4FD76 /* SVGiOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B982EF818270D0700D4FD76 /* Build configuration list for PBXNativeTarget "SVGiOSTests" */;
+			buildConfigurationList = 0B982F3618272EA800D4FD76 /* Build configuration list for PBXNativeTarget "SVGiOS Tests" */;
 			buildPhases = (
-				0B982EE018270D0700D4FD76 /* Sources */,
-				0B982EE118270D0700D4FD76 /* Frameworks */,
-				0B982EE218270D0700D4FD76 /* Resources */,
+				0B982F2018272EA800D4FD76 /* Sources */,
+				0B982F2118272EA800D4FD76 /* Frameworks */,
+				0B982F2218272EA800D4FD76 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0B982EEB18270D0700D4FD76 /* PBXTargetDependency */,
+				0B982F3518272EA800D4FD76 /* PBXTargetDependency */,
 			);
-			name = SVGiOSTests;
-			productName = SVGiOSTests;
-			productReference = 0B982EE418270D0700D4FD76 /* SVGiOSTests.xctest */;
+			name = "SVGiOS Tests";
+			productName = "SVGiOS Tests";
+			productReference = 0B982F2418272EA800D4FD76 /* SVGiOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -272,8 +262,8 @@
 			isa = PBXProject;
 			attributes = {
 				TargetAttributes = {
-					0B982EE318270D0700D4FD76 = {
-						TestTargetID = 8D15AC270486D014006FF6A4;
+					0B982F2318272EA800D4FD76 = {
+						TestTargetID = 0B982ED518270D0700D4FD76;
 					};
 				};
 			};
@@ -293,17 +283,17 @@
 			projectRoot = "";
 			targets = (
 				0B982ED518270D0700D4FD76 /* SVGiOS */,
-				0B982EE318270D0700D4FD76 /* SVGiOSTests */,
+				0B982F2318272EA800D4FD76 /* SVGiOS Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0B982EE218270D0700D4FD76 /* Resources */ = {
+		0B982F2218272EA800D4FD76 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B982EF218270D0700D4FD76 /* InfoPlist.strings in Resources */,
+				0B982F3018272EA800D4FD76 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,29 +315,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0B982EE018270D0700D4FD76 /* Sources */ = {
+		0B982F2018272EA800D4FD76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B982F0218270D9500D4FD76 /* SVG.m in Sources */,
-				0B982EF418270D0700D4FD76 /* SVGiOSTests.m in Sources */,
-				0B982F0D18270DBD00D4FD76 /* SVGPath.m in Sources */,
-				0B982F0B18270DBA00D4FD76 /* SVGGroup.m in Sources */,
-				0B982F0918270DB500D4FD76 /* SVGDocument.m in Sources */,
-				0B982F0418270D9800D4FD76 /* SVGElement.m in Sources */,
-				0B982F1718270DD100D4FD76 /* SVGRect.m in Sources */,
-				0B982F0618270D9E00D4FD76 /* SVGView.m in Sources */,
-				0B982F1518270DD100D4FD76 /* SVGPolygon.m in Sources */,
+				0B982F3218272EA800D4FD76 /* SVGiOS_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0B982EEB18270D0700D4FD76 /* PBXTargetDependency */ = {
+		0B982F3518272EA800D4FD76 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0B982ED518270D0700D4FD76 /* SVGiOS */;
-			targetProxy = 0B982EEA18270D0700D4FD76 /* PBXContainerItemProxy */;
+			targetProxy = 0B982F3418272EA800D4FD76 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -360,10 +342,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		0B982EF018270D0700D4FD76 /* InfoPlist.strings */ = {
+		0B982F2E18272EA800D4FD76 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0B982EF118270D0700D4FD76 /* en */,
+				0B982F2F18272EA800D4FD76 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -463,12 +445,11 @@
 			};
 			name = Release;
 		};
-		0B982EF918270D0700D4FD76 /* Debug */ = {
+		0B982F3718272EA800D4FD76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SVGDrawer.app/Contents/MacOS/SVGDrawer";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -489,7 +470,7 @@
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SVGiOS/SVGiOS-Prefix.pch";
+				GCC_PREFIX_HEADER = "SVGiOS Tests/SVGiOS Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -500,21 +481,19 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "SVGiOSTests/SVGiOSTests-Info.plist";
+				INFOPLIST_FILE = "SVGiOS Tests/SVGiOS Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		0B982EFA18270D0700D4FD76 /* Release */ = {
+		0B982F3818272EA800D4FD76 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SVGDrawer.app/Contents/MacOS/SVGDrawer";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -535,17 +514,16 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SVGiOS/SVGiOS-Prefix.pch";
+				GCC_PREFIX_HEADER = "SVGiOS Tests/SVGiOS Tests-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "SVGiOSTests/SVGiOSTests-Info.plist";
+				INFOPLIST_FILE = "SVGiOS Tests/SVGiOS Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -588,11 +566,11 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		0B982EF818270D0700D4FD76 /* Build configuration list for PBXNativeTarget "SVGiOSTests" */ = {
+		0B982F3618272EA800D4FD76 /* Build configuration list for PBXNativeTarget "SVGiOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B982EF918270D0700D4FD76 /* Debug */,
-				0B982EFA18270D0700D4FD76 /* Release */,
+				0B982F3718272EA800D4FD76 /* Debug */,
+				0B982F3818272EA800D4FD76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

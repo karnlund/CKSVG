@@ -42,6 +42,16 @@
 @synthesize scale;
 @synthesize normalFrame;
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+		scale = 1.0;
+		elements = [NSMutableArray new];
+    }
+    return self;
+}
+
 - (id)initWithData:(NSData *)data {
 	self = [super init];
 	if (!self)
@@ -49,7 +59,7 @@
 	
 	scale = 1.0;
 	
-	elements = [[NSMutableArray alloc] init];
+	elements = [NSMutableArray new];
 	
 	NSXMLParser *xml = [[NSXMLParser alloc] initWithData:data];
 	[xml setDelegate:self];
@@ -59,15 +69,21 @@
 }
 
 - (id)initWithFilename:(NSString*)filename {
-	NSData *svgxml = [[NSData alloc] initWithContentsOfFile:filename];
-	
-	self = [self initWithData:svgxml];
+	self = [self init];
 	if (self) {
-		
+		[self loadFilename:filename];
 	}
 	return self;
 }
 
+- (void)loadFilename:(NSString*)filename
+{
+	NSData *svgxml = [[NSData alloc] initWithContentsOfFile:filename];
+
+	NSXMLParser *xml = [[NSXMLParser alloc] initWithData:svgxml];
+	[xml setDelegate:self];
+	[xml parse];
+}
 
 - (void)drawRect:(CGRect)dirtyRect {
 	CGContextRef context = UIGraphicsGetCurrentContext();
@@ -83,10 +99,6 @@
 	CGContextRestoreGState(context);
 }
 
-//- (id)initWithAttributes:(NSDictionary *)attributeDict {
-//	return nil;
-//}
-//
 - (void)dealloc {
 	elements = nil;
 	containerStack = nil;

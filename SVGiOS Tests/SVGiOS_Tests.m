@@ -1,6 +1,6 @@
 //
-//  SVGiOSTests.m
-//  SVGiOSTests
+//  SVGiOS_Tests.m
+//  SVGiOS Tests
 //
 //  Created by Kurt Arnlund on 11/3/13.
 //
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface SVGiOSTests : XCTestCase
+@interface SVGiOS_Tests : XCTestCase
 
 @end
 
-@implementation SVGiOSTests
+@implementation SVGiOS_Tests
 
 - (void)setUp
 {
@@ -28,7 +28,9 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+	// NO tests yet, I need to generate some svg files for testing
+	
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end

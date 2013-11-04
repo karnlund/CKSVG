@@ -44,5 +44,6 @@
 
 - (id)initWithData:(NSData *)data;
 - (id)initWithFilename:(NSString*)filename;
+- (void)loadFilename:(NSString*)filename;
 
 @end
