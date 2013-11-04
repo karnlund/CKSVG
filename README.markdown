@@ -6,6 +6,7 @@ CKSVG is the beginnings of a Cocoa SVG parser and drawer (using Core Graphics) t
 *  Cleaned up code
 *  Support iOS exclusively
 *  Support ARC
+*  Added tests using XCTest
 
 ##Usage
 
