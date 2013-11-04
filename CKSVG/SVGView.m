@@ -26,18 +26,31 @@
  *	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+/*
+ *  Modified my Kurt Arnlund : Ingenious Arts and Technologies LLC on 3/22/12
+ *	Ported to support iOS and ARC
+ */
+
 
 #import "SVG.h"
+
+
+DDLogVarWarn;
 
 
 @implementation SVGView
 
 @synthesize elements;
+@synthesize containerStack;
 @synthesize scale;
+@synthesize normalFrame;
 
 - (id)initWithData:(NSData *)data {
-	if (![self init])
+	self = [super init];
+	if (!self)
 		return nil;
+	
+	DDLogVerbose(@"%p %@:%@", self, THIS_FILE, THIS_METHOD);
 	
 	scale = 1.0;
 	
@@ -46,21 +59,24 @@
 	NSXMLParser *xml = [[NSXMLParser alloc] initWithData:data];
 	[xml setDelegate:self];
 	[xml parse];
-	[xml release];
+//	[xml release];
 	
 	return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect {
+- (void)drawRect:(CGRect)dirtyRect {
 //	NSLog(@"Draw view");
-	CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
-	CGContextSetFillColorWithColor(context, CGColorGetConstantColor(kCGColorWhite));
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	CGContextSaveGState(context);
+	CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
 	CGContextFillRect(context, dirtyRect);
-	CGContextScaleCTM(context, 1.0, -1.0);
-	CGContextTranslateCTM(context, 0.0, -[self frame].size.height);
+	CGContextScaleCTM(context, 1.0, 1.0);
+	// AppKit uses a different CTM configuration
+//	CGContextTranslateCTM(context, 0.0, -[self frame].size.height);
 	CGContextScaleCTM(context, scale, scale);
 	for (SVGElement *element in elements)
 		[element drawRect:dirtyRect];
+	CGContextRestoreGState(context);
 }
 
 - (id)initWithAttributes:(NSDictionary *)attributeDict {
@@ -68,9 +84,10 @@
 }
 
 - (void)dealloc {
-	[elements release];
-	[containerStack release];
-	[super dealloc];
+	DDLogVerbose(@"%p %@:%@", self, THIS_FILE, THIS_METHOD);
+
+	elements = nil;
+	containerStack = nil;
 }
 
 - (void)setScale:(CGFloat)newScale {
@@ -79,7 +96,7 @@
 }
 
 - (void)configureWithAttributes:(NSDictionary *)attributeDict {
-	NSLog(@"%@", attributeDict);
+//	NSLog(@"%@", attributeDict);
 	
 	if ([attributeDict objectForKey:@"viewBox"]) {
 		int count = 4;
@@ -121,21 +138,39 @@
 		return;
 	}
 	if ([elementName isEqualToString:@"g"]) {
-		SVGElement<SVGContainer> *container = [containerStack lastObject];
+		SVGElement<SVGContainerProtocol> *container = [containerStack lastObject];
 		SVGGroup *group = [[SVGGroup alloc] initWithAttributes:attributeDict];
 		group.parentContainer = container;
 		[container.elements addObject:group];
 		[containerStack addObject:group];
-		[group release];
+//		[group release];
 		//NSLog(@"Add %@ to the %@", group, container);
 		return;
 	}
 	if ([elementName isEqualToString:@"path"]) {
-		SVGElement<SVGContainer> *container = [containerStack lastObject];
+		SVGElement<SVGContainerProtocol> *container = [containerStack lastObject];
 		SVGPath *path = [[SVGPath alloc] initWithAttributes:attributeDict];
 		path.parentContainer = container;
 		[container.elements addObject:path];
-		[path release];
+//		[path release];
+		//NSLog(@"Add %@ to the %@", path, container);
+		return;
+	}
+	if ([elementName isEqualToString:@"rect"]) {
+		SVGElement<SVGContainerProtocol> *container = [containerStack lastObject];
+		SVGRect *rect = [[SVGRect alloc] initWithAttributes:attributeDict];
+		rect.parentContainer = container;
+		[container.elements addObject:rect];
+		//		[path release];
+		//NSLog(@"Add %@ to the %@", path, container);
+		return;
+	}
+	if ([elementName isEqualToString:@"polygon"]) {
+		SVGElement<SVGContainerProtocol> *container = [containerStack lastObject];
+		SVGPolygon *rect = [[SVGPolygon alloc] initWithAttributes:attributeDict];
+		rect.parentContainer = container;
+		[container.elements addObject:rect];
+		//		[path release];
 		//NSLog(@"Add %@ to the %@", path, container);
 		return;
 	}
@@ -224,7 +259,7 @@
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
 	//NSLog(@"parserDidEndDocument:%@", parser);
-	[containerStack release];
+//	[containerStack release];
 	containerStack = nil;
 }
 

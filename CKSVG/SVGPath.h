@@ -26,11 +26,19 @@
  *	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+/*
+ *  Modified my Kurt Arnlund : Ingenious Arts and Technologies LLC on 3/22/12
+ *	Ported to support iOS and ARC
+ */
 
 #import "SVGElement.h"
 
-@interface SVGPath : SVGElement {
-	CGMutablePathRef path;
-}
+@interface SVGPath : SVGElement 
+
+@property (nonatomic, assign) CGMutablePathRef path;
+
+- (void)makeMutablePath;
+
+- (id)initWithAttributes:(NSDictionary *)attributeDict;
 
 @end

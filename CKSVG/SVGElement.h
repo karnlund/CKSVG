@@ -26,27 +26,28 @@
  *	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+/*
+ *  Modified my Kurt Arnlund : Ingenious Arts and Technologies LLC on 3/22/12
+ *	Ported to support iOS and ARC
+ */
 
-@protocol SVGContainer;
+@protocol SVGContainerProtocol;
 @class SVGElement;
 
-@interface SVGElement : NSObject {
-	SVGElement<SVGContainer> *parentContainer;
-	
-	CGColorRef fill;
-	CGColorRef stroke;
-	CGFloat strokeWidth;
-	CGLineJoin strokeLineJoin;
-}
+@interface SVGElement : NSObject 
 
-@property (nonatomic, assign) SVGElement<SVGContainer> *parentContainer;
+@property (nonatomic, weak) SVGElement<SVGContainerProtocol> *parentContainer;
+@property (nonatomic, strong) UIColor * fillColor;
+@property (nonatomic, strong) UIColor * strokeColor;
+@property (nonatomic, assign) CGFloat strokeWidth;
+@property (nonatomic, assign) CGLineJoin strokeLineJoin;
 
-@property (nonatomic, readonly) CGColorRef fill;
-@property (nonatomic, readonly) CGColorRef stroke;
-@property (nonatomic, readonly) CGFloat strokeWidth;
-@property (nonatomic, readonly) CGLineJoin strokeLineJoin;
+- (id)initWithAttributes:(NSDictionary *)attributeDict parent:(SVGElement<SVGContainerProtocol> *)parent;
+- (void)drawRect:(CGRect)dirtyRect;
 
-- (id)initWithAttributes:(NSDictionary *)attributeDict parent:(SVGElement<SVGContainer> *)parent;
-- (void)drawRect:(NSRect)dirtyRect;
+//- (void)setFillWithColor:(UIColor*)color;
+- (void)setFillFromParent;
+//- (void)setStrokeWithColor:(UIColor*)color;
+- (void)setStrokeFromParent;
 
 @end

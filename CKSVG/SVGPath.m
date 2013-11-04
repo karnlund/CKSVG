@@ -26,69 +26,92 @@
  *	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+/*
+ *  Modified my Kurt Arnlund : Ingenious Arts and Technologies LLC on 3/22/12
+ *	Ported to support iOS and ARC
+ */
 
 #import "SVGPath.h"
 #import "SVG.h"
 
+DDLogVarWarn;
+
 @implementation SVGPath
 
+@synthesize path;
+
 - (id)initWithAttributes:(NSDictionary *)attributeDict {
-	if (![super init])
+	self = [super init];
+	if (!self)
 		return nil;
+
+	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 	
-	path = SVGPathForPathData([attributeDict objectForKey:@"d"]);
+	CGMutablePathRef temp = path;
+	path = [SVGHelpers newSVGPathForPathData:[attributeDict objectForKey:@"d"]];
+	CGPathRelease(temp);
 	
 	// Use specified fill or inherit
 	NSString *fillStr = [attributeDict objectForKey:@"fill"];
 	if (fillStr && ![fillStr isEqualToString:@"inherit"])
-		fill = SVGColorWithPaint(fillStr);
+		[self setFillColor:[SVGHelpers newSVGColorWithPaint:fillStr]];
 	else
-		fill = self.parentContainer.fill;
-	CGColorRetain(fill);
+		[self setFillFromParent];
 	
 	// Use specified stroke or inherit
 	NSString *strokeStr = [attributeDict objectForKey:@"stroke"];
 	if (strokeStr && ![strokeStr isEqualToString:@"inherit"])
-		stroke = SVGColorWithPaint(strokeStr);
+		[self setStrokeColor:[SVGHelpers newSVGColorWithPaint:strokeStr]];
 	else
-		stroke = self.parentContainer.stroke;
-	CGColorRetain(stroke);
+		[self setStrokeFromParent];
 	
 	// Use specified stroke-width or inherit
+	self.strokeWidth = 1.0f;
 	NSString *strokeWidthStr = [attributeDict objectForKey:@"stroke-width"];
 	if (strokeWidthStr && ![strokeWidthStr isEqualToString:@"inherit"])
-		strokeWidth = SVGFloatWithLength(strokeWidthStr);
+		self.strokeWidth = [SVGHelpers SVGFloatWithLength:strokeWidthStr];
 	else
-		strokeWidth = self.parentContainer.strokeWidth;
+		self.strokeWidth = self.parentContainer.strokeWidth;
 	
 	// Use specified stroke-linejoin or inherit
+	self.strokeLineJoin = kCGLineJoinMiter;
 	NSString *strokeLineJoinStr = [attributeDict objectForKey:@"stroke-linejoin"];
 	if (strokeLineJoinStr && ![strokeLineJoinStr isEqualToString:@"inherit"])
-		strokeLineJoin = SVGLineJoinWithLineJoin(strokeLineJoinStr);
+		self.strokeLineJoin = [SVGHelpers SVGLineJoinWithLineJoin:strokeLineJoinStr];
 	else
-		strokeLineJoin = self.parentContainer.strokeLineJoin;
+		self.strokeLineJoin = self.parentContainer.strokeLineJoin;
 	
 	return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect {
+- (void)makeMutablePath
+{
+	CGMutablePathRef temp = path;
+	path = CGPathCreateMutable();
+	CGPathRelease(temp);
+}
+
+- (void)drawRect:(CGRect)dirtyRect {
+	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+
 //	NSLog(@"Draw path");
-	CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
-	CGContextSetLineWidth(context, strokeWidth);
-	CGContextSetLineJoin(context, strokeLineJoin);
-	CGContextSetStrokeColorWithColor(context, stroke);
-	CGContextSetFillColorWithColor(context, fill);
-	CGContextAddPath(context, path);
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	CGContextSetLineWidth(context, self.strokeWidth);
+	CGContextSetLineJoin(context, self.strokeLineJoin);
+	CGContextSetStrokeColorWithColor(context, self.strokeColor.CGColor);
+	CGContextSetFillColorWithColor(context, self.fillColor.CGColor);
+
+	CGContextAddPath(context, self.path);
 	CGContextFillPath(context);
-	CGContextAddPath(context, path);
+	CGContextAddPath(context, self.path);
 	CGContextStrokePath(context);
 }
 
 - (void)dealloc {
+	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+
 	CGPathRelease(path);
-	CGColorRelease(fill);
-	CGColorRelease(stroke);
-	[super dealloc];
+	path = nil;
 }
 
 @end

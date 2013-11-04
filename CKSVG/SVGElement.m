@@ -26,26 +26,75 @@
  *	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+/*
+ *  Modified my Kurt Arnlund : Ingenious Arts and Technologies LLC on 3/22/12
+ *	Ported to support iOS and ARC
+ */
 
 #import "SVGElement.h"
+#import "SVGContainerProtocol.h"
+
+DDLogVarWarn;
 
 @implementation SVGElement
 
 @synthesize parentContainer;
 
-@synthesize fill;
-@synthesize stroke;
+@synthesize fillColor;
+@synthesize strokeColor;
 @synthesize strokeWidth;
 @synthesize strokeLineJoin;
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+		DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
+		strokeWidth = 1.0f;
+		strokeLineJoin = kCGLineJoinMiter;
+    }
+    return self;
+}
 
-- (id)initWithAttributes:(NSDictionary *)attributeDict parent:(SVGElement<SVGContainer> *)parent {
-	NSLog(@"SVGElement is an abstract class, -initWithAttributes:parent: should be implemented in the subclass.");
+
+- (id)initWithAttributes:(NSDictionary *)attributeDict parent:(SVGElement<SVGContainerProtocol> *)parent {
+//	NSLog(@"SVGElement is an abstract class, -initWithAttributes:parent: should be implemented in the subclass.");
 	return nil;
 }
 
-- (void)drawRect:(NSRect)dirtyRect {
-	NSLog(@"SVGElement is an abstract class, -drawRect: should be implemented in the subclass.");
+- (void)drawRect:(CGRect)dirtyRect {
+//	NSLog(@"SVGElement is an abstract class, -drawRect: should be implemented in the subclass.");
+}
+
+- (void)setFillFromParent
+{
+	if (!self.parentContainer) {
+		[self setFillColor:[UIColor blackColor]];			
+		return;
+	}
+	
+	fillColor = [self.parentContainer fillColor];
+}
+
+- (void)setStrokeFromParent
+{
+	if (!self.parentContainer) {
+		[self setStrokeColor:[UIColor blackColor]];
+		return;
+	}
+
+	strokeColor = [self.parentContainer strokeColor];
+}
+
+
+- (void)dealloc
+{
+	DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
+
+	fillColor = nil;
+	strokeColor = nil;
+	strokeWidth = 0.0f;
+	strokeLineJoin = kCGLineJoinMiter;
 }
 
 @end

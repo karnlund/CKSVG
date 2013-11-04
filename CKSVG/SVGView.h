@@ -26,18 +26,21 @@
  *	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+/*
+ *  Modified my Kurt Arnlund : Ingenious Arts and Technologies LLC on 3/22/12
+ *	Ported to support iOS and ARC
+ */
 
 #import <Foundation/Foundation.h>
-#import "SVGContainer.h"
+#import "SVGContainerProtocol.h"
 
-@interface SVGView : NSView <NSXMLParserDelegate, SVGContainer> {
-	NSMutableArray *elements;
-	NSMutableArray *containerStack;
-	CGFloat scale;
-	CGRect normalFrame;
+@interface SVGView : UIView <NSXMLParserDelegate, SVGContainerProtocol> {
 }
 
+@property (strong, nonatomic) NSMutableArray *elements;
+@property (strong, nonatomic) NSMutableArray *containerStack;
 @property (nonatomic, assign) CGFloat scale;
+@property (nonatomic, assign) CGRect normalFrame;
 
 - (id)initWithData:(NSData *)data;
 

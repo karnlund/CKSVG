@@ -26,12 +26,14 @@
  *	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+/*
+ *  Modified my Kurt Arnlund : Ingenious Arts and Technologies LLC on 3/22/12
+ *	Ported to support iOS and ARC
+ */
 
-#import "SVGContainer.h"
 #import "SVGElement.h"
+#import "SVGContainerProtocol.h"
 
-@interface SVGDocument : SVGElement <SVGContainer> {
-	NSMutableArray *elements;
-}
-
+@interface SVGDocument : SVGElement <SVGContainerProtocol> 
+@property (strong, nonatomic) NSMutableArray *elements;
 @end

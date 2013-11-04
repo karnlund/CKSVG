@@ -31,19 +31,7 @@
  *	Ported to support iOS and ARC
  */
 
-#import "SVGElement.h"
-#import "SVGContainerProtocol.h"
-#import "SVGView.h"
-#import "SVGGroup.h"
-#import "SVGPath.h"
-#import "SVGRect.h"
-#import "SVGPolygon.h"
+@protocol SVGContainerProtocol
 
-
-@interface SVGHelpers : NSObject
-+ (UIColor*)newSVGColorWithPaint:(NSString *)paint;
-+ (CGFloat)SVGFloatWithLength:(NSString *)length;
-+ (CGMutablePathRef)newSVGPathForPathData:(NSString *)pathData;
-+ (CGLineJoin)SVGLineJoinWithLineJoin:(NSString *)lineJoin;
+@property (nonatomic, readonly) NSMutableArray *elements;
 @end
-
