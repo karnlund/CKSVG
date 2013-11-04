@@ -13,7 +13,7 @@
  <polygon fill="none" stroke="#000000" stroke-width="0.5" points="36.25,95.489 36.25,687.34 575.25,687.34 575.25,95.489 36.25,95.489 "/>
  */
 
-DDLogVarWarn;
+//DDLogVarWarn;
 
 
 @interface SVGPolygon ()
@@ -29,7 +29,7 @@ DDLogVarWarn;
 	if (!self)
 		return nil;
 
-	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 	
 	NSString *pathStr = [attributeDict objectForKey:@"points"];
 	if (pathStr)
@@ -115,7 +115,7 @@ DDLogVarWarn;
 
 - (void)dealloc
 {
-	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 }
 
 

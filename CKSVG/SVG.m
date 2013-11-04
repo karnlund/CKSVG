@@ -94,7 +94,7 @@
 		return kCGLineJoinRound;
 	if ([lineJoin isEqualToString:@"bevel"])
 		return kCGLineJoinBevel;
-	return NSNotFound;
+	return kCGLineJoinMiter;
 }
 
 

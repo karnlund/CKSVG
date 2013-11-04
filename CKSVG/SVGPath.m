@@ -34,7 +34,7 @@
 #import "SVGPath.h"
 #import "SVG.h"
 
-DDLogVarWarn;
+//DDLogVarWarn;
 
 @implementation SVGPath
 
@@ -45,7 +45,7 @@ DDLogVarWarn;
 	if (!self)
 		return nil;
 
-	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 	
 	CGMutablePathRef temp = path;
 	path = [SVGHelpers newSVGPathForPathData:[attributeDict objectForKey:@"d"]];
@@ -92,7 +92,7 @@ DDLogVarWarn;
 }
 
 - (void)drawRect:(CGRect)dirtyRect {
-	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 
 //	NSLog(@"Draw path");
 	CGContextRef context = UIGraphicsGetCurrentContext();
@@ -108,7 +108,7 @@ DDLogVarWarn;
 }
 
 - (void)dealloc {
-	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 
 	CGPathRelease(path);
 	path = nil;

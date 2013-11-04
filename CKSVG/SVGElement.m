@@ -34,7 +34,7 @@
 #import "SVGElement.h"
 #import "SVGContainerProtocol.h"
 
-DDLogVarWarn;
+//DDLogVarWarn;
 
 @implementation SVGElement
 
@@ -49,7 +49,7 @@ DDLogVarWarn;
 {
     self = [super init];
     if (self) {
-		DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
+//		DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
 		strokeWidth = 1.0f;
 		strokeLineJoin = kCGLineJoinMiter;
     }
@@ -89,7 +89,7 @@ DDLogVarWarn;
 
 - (void)dealloc
 {
-	DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
 
 	fillColor = nil;
 	strokeColor = nil;

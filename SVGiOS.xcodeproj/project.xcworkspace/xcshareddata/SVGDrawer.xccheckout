@@ -12,6 +12,8 @@
 	<dict>
 		<key>07C4BDCB-47A1-41F9-8F66-0559A5DE5112</key>
 		<string>https://github.com/karnlund/CKSVG.git</string>
+		<key>2FCDA724-7D29-4877-849F-A23BF59F279D</key>
+		<string>https://github.com/mattrajca/SVGKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SVGDrawer.xcodeproj/project.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>07C4BDCB-47A1-41F9-8F66-0559A5DE5112</key>
 		<string>../..</string>
+		<key>2FCDA724-7D29-4877-849F-A23BF59F279D</key>
+		<string>../../../../SVGKit 2</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/karnlund/CKSVG.git</string>
@@ -35,6 +39,14 @@
 			<string>07C4BDCB-47A1-41F9-8F66-0559A5DE5112</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CKSVG</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2FCDA724-7D29-4877-849F-A23BF59F279D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SVGKit 2</string>
 		</dict>
 	</array>
 </dict>

@@ -11,44 +11,45 @@
 #import "SVGRect.h"
 #import "SVG.h"
 
-DDLogVarWarn;
+//DDLogVarWarn;
 
 @implementation SVGRect
 
-void CGPathAddRoundedRect (CGMutablePathRef path, CGRect rect, CGFloat rx, CGFloat ry) {
-	CGRect innerRect = CGRectInset(rect, rx, ry);
-	
-	CGFloat innerRight = innerRect.origin.x + innerRect.size.width;
-	CGFloat right = rect.origin.x + rect.size.width;
-	CGFloat innerBottom = innerRect.origin.y + innerRect.size.height;
-	CGFloat bottom = rect.origin.y + rect.size.height;
-	
-	CGFloat innerTop = innerRect.origin.y;
-	CGFloat top = rect.origin.y;
-	CGFloat innerLeft = innerRect.origin.x;
-	CGFloat left = rect.origin.x;
-	
-	CGPathMoveToPoint(path, NULL, innerLeft, top);
-	
-	CGPathAddLineToPoint(path, NULL, innerRight, top);
-	CGPathAddArcToPoint(path, NULL, right, top, right, innerTop, (rx > ry) ? rx : ry);
-	CGPathAddLineToPoint(path, NULL, right, innerBottom);
-	CGPathAddArcToPoint(path, NULL,  right, bottom, innerRight, bottom, (rx > ry) ? rx : ry);
-	
-	CGPathAddLineToPoint(path, NULL, innerLeft, bottom);
-	CGPathAddArcToPoint(path, NULL,  left, bottom, left, innerBottom, (rx > ry) ? rx : ry);
-	CGPathAddLineToPoint(path, NULL, left, innerTop);
-	CGPathAddArcToPoint(path, NULL,  left, top, innerLeft, top, (rx > ry) ? rx : ry);
-	
-	CGPathCloseSubpath(path);
-}
+// Now implemented in CoreGraphics
+//void CGPathAddRoundedRect (CGMutablePathRef path, CGRect rect, CGFloat rx, CGFloat ry) {
+//	CGRect innerRect = CGRectInset(rect, rx, ry);
+//	
+//	CGFloat innerRight = innerRect.origin.x + innerRect.size.width;
+//	CGFloat right = rect.origin.x + rect.size.width;
+//	CGFloat innerBottom = innerRect.origin.y + innerRect.size.height;
+//	CGFloat bottom = rect.origin.y + rect.size.height;
+//	
+//	CGFloat innerTop = innerRect.origin.y;
+//	CGFloat top = rect.origin.y;
+//	CGFloat innerLeft = innerRect.origin.x;
+//	CGFloat left = rect.origin.x;
+//	
+//	CGPathMoveToPoint(path, NULL, innerLeft, top);
+//	
+//	CGPathAddLineToPoint(path, NULL, innerRight, top);
+//	CGPathAddArcToPoint(path, NULL, right, top, right, innerTop, (rx > ry) ? rx : ry);
+//	CGPathAddLineToPoint(path, NULL, right, innerBottom);
+//	CGPathAddArcToPoint(path, NULL,  right, bottom, innerRight, bottom, (rx > ry) ? rx : ry);
+//	
+//	CGPathAddLineToPoint(path, NULL, innerLeft, bottom);
+//	CGPathAddArcToPoint(path, NULL,  left, bottom, left, innerBottom, (rx > ry) ? rx : ry);
+//	CGPathAddLineToPoint(path, NULL, left, innerTop);
+//	CGPathAddArcToPoint(path, NULL,  left, top, innerLeft, top, (rx > ry) ? rx : ry);
+//	
+//	CGPathCloseSubpath(path);
+//}
 
 - (id)initWithAttributes:(NSDictionary *)attributeDict {
 	self = [super init];
 	if (!self)
 		return nil;
 
-	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 
 	rect = CGRectZero;
 	rx = 0.0f; ry = 0.0f;
@@ -87,7 +88,7 @@ void CGPathAddRoundedRect (CGMutablePathRef path, CGRect rect, CGFloat rx, CGFlo
 		CGPathCloseSubpath(self.path);
 	}
 	else
-		CGPathAddRoundedRect(self.path, rect, rx, ry);
+		CGPathAddRoundedRect(self.path, NULL, rect, rx, ry);
 
 	// Use specified fill or inherit
 	NSString *fillStr = [attributeDict objectForKey:@"fill"];
@@ -135,7 +136,7 @@ void CGPathAddRoundedRect (CGMutablePathRef path, CGRect rect, CGFloat rx, CGFlo
 
 - (void)dealloc
 {
-	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 }
 
 @end

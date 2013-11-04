@@ -33,7 +33,7 @@
 
 #import "SVGDocument.h"
 
-DDLogVarWarn;
+//DDLogVarWarn;
 
 @implementation SVGDocument
 
@@ -43,14 +43,14 @@ DDLogVarWarn;
 {
     self = [super init];
     if (self) {
-		DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
+		//DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
     }
     return self;
 }
 
 - (void)dealloc
 {
-	DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
+	//DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
 	elements = nil;
 }
 

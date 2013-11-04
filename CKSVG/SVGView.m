@@ -35,7 +35,7 @@
 #import "SVG.h"
 
 
-DDLogVarWarn;
+//DDLogVarWarn;
 
 
 @implementation SVGView
@@ -50,7 +50,7 @@ DDLogVarWarn;
 	if (!self)
 		return nil;
 	
-	DDLogVerbose(@"%p %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p %@:%@", self, THIS_FILE, THIS_METHOD);
 	
 	scale = 1.0;
 	
@@ -84,7 +84,7 @@ DDLogVarWarn;
 }
 
 - (void)dealloc {
-	DDLogVerbose(@"%p %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p %@:%@", self, THIS_FILE, THIS_METHOD);
 
 	elements = nil;
 	containerStack = nil;

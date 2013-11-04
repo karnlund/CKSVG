@@ -34,10 +34,6 @@
 #import "SVGGroup.h"
 #import "SVG.h"
 
-
-DDLogVarWarn;
-
-
 @implementation SVGGroup
 
 @synthesize elements;
@@ -47,7 +43,7 @@ DDLogVarWarn;
 	if (!self)
 		return nil;
 	
-	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 
 	elements = [[NSMutableArray alloc] init];
 	return self;
@@ -61,7 +57,7 @@ DDLogVarWarn;
 
 - (void)dealloc
 {
-	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 }
 
 
