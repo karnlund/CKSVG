@@ -2,26 +2,26 @@
 
 CKSVG is the beginnings of a Cocoa SVG parser and drawer (using Core Graphics) that I started a long time ago.  So far it does a decent job doing a path (except for ellipses).  Attempts to follow the [SVG 1.1 specification](http://www.w3.org/TR/SVG/).
 
-3/22/12 Updated by Kurt Arnlund
-	* Cleaned up code
-	* Suuport iOS
-	* Support ARC
+03/22/12 Updated by Kurt Arnlund
+*  Cleaned up code
+*  Suuport iOS
+*  Support ARC
 
 ##Usage
 
 First import the library:
 
->#import <SVG.h>
+	#import <SVG.h>
 
 Next initialize an SVGView
 
-> NSString *filename = @"path to svg file";
-> SVGView *svgview = [[SVGView alloc] initWithFilename:filename];
+	NSString *filename = @"path to svg file";
+	SVGView *svgview = [[SVGView alloc] initWithFilename:filename];
 
 Add the view to some other view hierarchy
 
-> svgview.frame = aView.bounds; // setup the svg view frame
-> [aView addSubview:svgview];
+	svgview.frame = aView.bounds; // setup the svg view frame
+	[aView addSubview:svgview];
 
 ##License
 
