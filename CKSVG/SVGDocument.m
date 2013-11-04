@@ -33,8 +33,6 @@
 
 #import "SVGDocument.h"
 
-//DDLogVarWarn;
-
 @implementation SVGDocument
 
 @synthesize elements;
@@ -43,14 +41,12 @@
 {
     self = [super init];
     if (self) {
-		//DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
     }
     return self;
 }
 
 - (void)dealloc
 {
-	//DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
 	elements = nil;
 }
 

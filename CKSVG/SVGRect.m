@@ -11,8 +11,6 @@
 #import "SVGRect.h"
 #import "SVG.h"
 
-//DDLogVarWarn;
-
 @implementation SVGRect
 
 // Now implemented in CoreGraphics
@@ -48,8 +46,6 @@
 	self = [super init];
 	if (!self)
 		return nil;
-
-//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 
 	rect = CGRectZero;
 	rx = 0.0f; ry = 0.0f;
@@ -122,7 +118,6 @@
 }
 
 - (void)drawRect:(CGRect)dirtyRect {
-	//	NSLog(@"Draw path");
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSetLineWidth(context, self.strokeWidth);
 	CGContextSetLineJoin(context, self.strokeLineJoin);
@@ -136,7 +131,6 @@
 
 - (void)dealloc
 {
-//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
 }
 
 @end

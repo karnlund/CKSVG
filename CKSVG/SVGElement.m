@@ -34,8 +34,6 @@
 #import "SVGElement.h"
 #import "SVGContainerProtocol.h"
 
-//DDLogVarWarn;
-
 @implementation SVGElement
 
 @synthesize parentContainer;
@@ -49,7 +47,6 @@
 {
     self = [super init];
     if (self) {
-//		DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
 		strokeWidth = 1.0f;
 		strokeLineJoin = kCGLineJoinMiter;
     }
@@ -58,12 +55,10 @@
 
 
 - (id)initWithAttributes:(NSDictionary *)attributeDict parent:(SVGElement<SVGContainerProtocol> *)parent {
-//	NSLog(@"SVGElement is an abstract class, -initWithAttributes:parent: should be implemented in the subclass.");
 	return nil;
 }
 
 - (void)drawRect:(CGRect)dirtyRect {
-//	NSLog(@"SVGElement is an abstract class, -drawRect: should be implemented in the subclass.");
 }
 
 - (void)setFillFromParent
@@ -89,8 +84,6 @@
 
 - (void)dealloc
 {
-//	DDLogVerbose(@"%p  %@:%@", self, THIS_FILE, THIS_METHOD);
-
 	fillColor = nil;
 	strokeColor = nil;
 	strokeWidth = 0.0f;

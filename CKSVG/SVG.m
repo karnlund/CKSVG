@@ -36,7 +36,6 @@
 
 @implementation SVGHelpers
 
-
 #pragma mark - Attributes
 
 + (UIColor*)newSVGColorWithPaint:(NSString *)paint {
@@ -74,15 +73,13 @@
 				colors[i] = (CGFloat)[colorStr floatValue]/255.0;
 			}
 		}
-//		NSLog(@"Color is %f, %f, %f", colors[0], colors[1], colors[2]);
 		return [UIColor colorWithRed:colors[0] green:colors[1] blue:colors[2] alpha:1.0];
 	}
-	
-//	NSLog(@"ERROR: Unable to determine color \"%@\".  Inheriting from parent.", paint);
+
+	NSAssert([paint hasPrefix:@"rgb("], @"ERROR: Unable to determine color \"%@\".  Inheriting from parent.", paint);
 	return NULL;
 }
 
-// FIXME: needs implementation
 + (CGFloat)SVGFloatWithLength:(NSString *)length {
 	return [length floatValue];
 }
@@ -146,12 +143,7 @@ void SVGPathAddArc(CGMutablePathRef path, CGFloat xRadius, CGFloat yRadius, CGFl
 	
 	CGPoint startPoint = CGPathGetCurrentPoint(path);
 	
-//	NSLog(@"Start: %f, %f", startPoint.x, startPoint.y);
-//	NSLog(@"xR: %f, yR: %f, Rot: %f, Start: (%f,%f), End: (%f,%f)", xRadius, yRadius, rotation, startPoint.x, startPoint.y, endPoint.x, endPoint.y);
-	
 	double minRadius = pointDistance(startPoint, endPoint) / 2 + .001;
-	
-//	NSLog(@"Minimum Radius: %f", minRadius);
 	
 	if (xRadius < yRadius) {
 		if (xRadius < minRadius) {
@@ -166,9 +158,6 @@ void SVGPathAddArc(CGMutablePathRef path, CGFloat xRadius, CGFloat yRadius, CGFl
 		}
 	}
 	
-//	NSLog(@"xRadius: %f", xRadius);
-//	NSLog(@"yRadius: %f", yRadius);
-	
 	rotation = rotation * M_PI/180;
 	CGAffineTransform transform = CGAffineTransformMakeRotation(-rotation);
 	transform = CGAffineTransformConcat(transform, CGAffineTransformMakeScale(1.0, xRadius/yRadius));
@@ -176,17 +165,12 @@ void SVGPathAddArc(CGMutablePathRef path, CGFloat xRadius, CGFloat yRadius, CGFl
 	startPoint = CGPointApplyAffineTransform(startPoint, transform);
 	endPoint = CGPointApplyAffineTransform(endPoint, transform);
 	
-//	NSLog(@"Start: (%f,%f)", startPoint.x, startPoint.y);
-//	NSLog(@"End: (%f,%f)", endPoint.x, endPoint.y);
-	
 	// Determine possible center points
 	CGFloat a = startPoint.x;
 	CGFloat b = startPoint.y;
 	CGFloat c = endPoint.x;
 	CGFloat d = endPoint.y;
 	CGFloat r = xRadius;
-	
-//	NSLog(@"a = %f; b = %f; c = %f; d = %f; r = %f;", a, b, c, d, r);
 	
 	double aSquared = a*a;
 	double aCubed = aSquared*a;
@@ -216,10 +200,6 @@ void SVGPathAddArc(CGMutablePathRef path, CGFloat xRadius, CGFloat yRadius, CGFl
 	
 	double hDenominator =  2 * ( 4 * aSquared - 8 * c * a + 4 * bSquared + 4 * cSquared + 4 * dSquared - 8 * b * d );
 	
-//	NSLog(@"Left: %f", hLeft);
-//	NSLog(@"Right: %f", hRight);
-//	NSLog(@"Denominator: %f", hDenominator);
-	
 	double h1 = (hLeft + sqrt(hRight)) / hDenominator;
 	double h2 = (hLeft - sqrt(hRight)) / hDenominator;
 	
@@ -241,11 +221,6 @@ void SVGPathAddArc(CGMutablePathRef path, CGFloat xRadius, CGFloat yRadius, CGFl
 	isValid[2] = fabs((a-h2) * (a-h2) + (b-k3) * (b-k3) - rSquared) < 0.1 && fabs((c-h2) * (c-h2) + (d-k3) * (d-k3) - rSquared) < 0.1;
 	isValid[3] = fabs((a-h2) * (a-h2) + (b-k4) * (b-k4) - rSquared) < 0.1 && fabs((c-h2) * (c-h2) + (d-k4) * (d-k4) - rSquared) < 0.1;
 	
-//	NSLog(@"Potential Center 1: (%f,%f) %d", potentials[0].x, potentials[0].y, isValid[0]);
-//	NSLog(@"Potential Center 2: (%f,%f) %d", potentials[1].x, potentials[1].y, isValid[1]);
-//	NSLog(@"Potential Center 3: (%f,%f) %d", potentials[2].x, potentials[2].y, isValid[2]);
-//	NSLog(@"Potential Center 4: (%f,%f) %d", potentials[3].x, potentials[3].y, isValid[3]);
-	
 	CGPoint center[2];
 	int index = 0;
 	
@@ -255,10 +230,6 @@ void SVGPathAddArc(CGMutablePathRef path, CGFloat xRadius, CGFloat yRadius, CGFl
 		if (index > 1)
 			break;
 	}
-	
-//	NSLog(@"Center 1: (%f,%f)", center[0].x, center[0].y);
-//	NSLog(@"Center 2: (%f,%f)", center[1].x, center[1].y);
-
 	
 	// Angles
 	CGFloat angles[4];
@@ -331,10 +302,6 @@ void SVGPathAddArc(CGMutablePathRef path, CGFloat xRadius, CGFloat yRadius, CGFl
 	
 	CGAffineTransform inverse = CGAffineTransformInvert(transform);
 	
-//	arc.center = CGPointApplyAffineTransform(arc.center, inverse);
-	
-//	NSLog(@"Arc: (%.2f,%.2f) %f, %f, %d", arc.center.x, arc.center.y, arc.startAngle, arc.endAngle, arc.clockwise);
-	
 	CGPathAddArc(path, &inverse, arc.center.x, arc.center.y, r, arc.startAngle, arc.endAngle, arc.clockwise);
 }
 
@@ -377,7 +344,6 @@ void executeCommandOnMutablePath(CGMutablePathRef path, NSString *command) {
 						coords[0] += current.x;
 						coords[1] += current.y;
 					}
-//					NSLog(@"Move: %f,%f", coords[0], coords[1]);
 					CGPathMoveToPoint(path, NULL, coords[0], coords[1]);
 					CGPointRelease(cSmooth);
 					CGPointRelease(qSmooth);
@@ -564,11 +530,10 @@ void executeCommandOnMutablePath(CGMutablePathRef path, NSString *command) {
 	}
 	
 	// unknown
-//	NSLog(@"unknown command: %@", command);
+	NSLog(@"unknown command: %@", command);
 }
 
 + (CGMutablePathRef)newSVGPathForPathData:(NSString *)pathData {
-//	NSLog(@"pathData = %@", pathData);
 	CGMutablePathRef path = CGPathCreateMutable();
 	CGPathMoveToPoint(path, NULL, 0, 0);
 	
@@ -591,9 +556,6 @@ void executeCommandOnMutablePath(CGMutablePathRef path, NSString *command) {
 		pathData = [pathData substringFromIndex:index];
 	}
 	
-//	CGPathMoveToPoint(path, NULL, 0, 0);
-//	CGPathAddLineToPoint(path, NULL, rand()%1000, rand()%1000);
-//	CGPathRetain(path);	
 	return path;
 }
 

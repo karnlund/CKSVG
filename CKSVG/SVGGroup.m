@@ -43,21 +43,18 @@
 	if (!self)
 		return nil;
 	
-//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
-
 	elements = [[NSMutableArray alloc] init];
 	return self;
 }
 
 - (void)drawRect:(CGRect)dirtyRect {
-//	NSLog(@"Draw group");
 	for (SVGElement *element in elements)
 		[element drawRect:dirtyRect];
 }
 
 - (void)dealloc
 {
-//	DDLogVerbose(@"%p   %@:%@", self, THIS_FILE, THIS_METHOD);
+	elements = nil;
 }
 
 

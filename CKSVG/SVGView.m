@@ -35,9 +35,6 @@
 #import "SVG.h"
 
 
-//DDLogVarWarn;
-
-
 @implementation SVGView
 
 @synthesize elements;
@@ -50,8 +47,6 @@
 	if (!self)
 		return nil;
 	
-//	DDLogVerbose(@"%p %@:%@", self, THIS_FILE, THIS_METHOD);
-	
 	scale = 1.0;
 	
 	elements = [[NSMutableArray alloc] init];
@@ -59,20 +54,18 @@
 	NSXMLParser *xml = [[NSXMLParser alloc] initWithData:data];
 	[xml setDelegate:self];
 	[xml parse];
-//	[xml release];
 	
 	return self;
 }
 
 - (void)drawRect:(CGRect)dirtyRect {
-//	NSLog(@"Draw view");
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSaveGState(context);
 	CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
 	CGContextFillRect(context, dirtyRect);
 	CGContextScaleCTM(context, 1.0, 1.0);
+
 	// AppKit uses a different CTM configuration
-//	CGContextTranslateCTM(context, 0.0, -[self frame].size.height);
 	CGContextScaleCTM(context, scale, scale);
 	for (SVGElement *element in elements)
 		[element drawRect:dirtyRect];
@@ -84,8 +77,6 @@
 }
 
 - (void)dealloc {
-//	DDLogVerbose(@"%p %@:%@", self, THIS_FILE, THIS_METHOD);
-
 	elements = nil;
 	containerStack = nil;
 }
@@ -96,8 +87,6 @@
 }
 
 - (void)configureWithAttributes:(NSDictionary *)attributeDict {
-//	NSLog(@"%@", attributeDict);
-	
 	if ([attributeDict objectForKey:@"viewBox"]) {
 		int count = 4;
 		float floats[] = {0,0,0,0}; // To appease the Clang gods
@@ -118,20 +107,15 @@
 	}
 	
 	self.scale = 1.0;
-	
-	
-//	NSLog(@"%f,%f,%f,%f", floats[0], floats[1], floats[2], floats[3]);
 }
 
 #pragma mark NSXMLParserDelegate
 
 - (void)parser:(NSXMLParser *)parser didEndMappingPrefix:(NSString *)prefix {
-	//NSLog(@"parser:%@ didEndMappingPrefix:%@", parser, prefix);
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI
  qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
-	//NSLog(@"parser:%@ didStartElement:%@ namespaceURI:%@ qualifiedName:%@ attributes:%@", parser, elementName, namespaceURI, qualifiedName, attributeDict);
 	if ([elementName isEqualToString:@"svg"]) {
 		[containerStack addObject:self];
 		[self configureWithAttributes:attributeDict];
@@ -143,8 +127,6 @@
 		group.parentContainer = container;
 		[container.elements addObject:group];
 		[containerStack addObject:group];
-//		[group release];
-		//NSLog(@"Add %@ to the %@", group, container);
 		return;
 	}
 	if ([elementName isEqualToString:@"path"]) {
@@ -152,8 +134,6 @@
 		SVGPath *path = [[SVGPath alloc] initWithAttributes:attributeDict];
 		path.parentContainer = container;
 		[container.elements addObject:path];
-//		[path release];
-		//NSLog(@"Add %@ to the %@", path, container);
 		return;
 	}
 	if ([elementName isEqualToString:@"rect"]) {
@@ -161,8 +141,6 @@
 		SVGRect *rect = [[SVGRect alloc] initWithAttributes:attributeDict];
 		rect.parentContainer = container;
 		[container.elements addObject:rect];
-		//		[path release];
-		//NSLog(@"Add %@ to the %@", path, container);
 		return;
 	}
 	if ([elementName isEqualToString:@"polygon"]) {
@@ -170,23 +148,16 @@
 		SVGPolygon *rect = [[SVGPolygon alloc] initWithAttributes:attributeDict];
 		rect.parentContainer = container;
 		[container.elements addObject:rect];
-		//		[path release];
-		//NSLog(@"Add %@ to the %@", path, container);
 		return;
 	}
-	
-//	NSLog(@"Unknown element: %@", elementName);
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-	//NSLog(@"parser:%@ didEndElement:%@ namespaceURI:%@ qualifiedName:%@", parser, elementName, namespaceURI, qName);
 	if ([elementName isEqualToString:@"svg"]) {
 		if ([containerStack lastObject] == self) {
-			//NSLog(@"Stack's successfully cleaned");
 			[containerStack removeLastObject];
 		}
 		else {
-			//NSLog(@"Stack's DIRTY!");
 		}
 		return;
 	}
@@ -197,74 +168,56 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didStartMappingPrefix:(NSString *)prefix toURI:(NSString *)namespaceURI {
-	//NSLog(@"parser:%@ didStartMappingPrefix:%@ toURI:%@", parser, prefix, namespaceURI);
 }
 
 - (void)parser:(NSXMLParser *)parser foundAttributeDeclarationWithName:(NSString *)attributeName forElement:(NSString *)elementName type:(NSString *)type defaultValue:(NSString *)defaultValue {
-	//NSLog(@"parser:%@ foundAttributeDeclarationWithName:%@ forElement:%@ type:%@ defaultValue:%@", parser, attributeName, elementName, type, defaultValue);
 }
 
 - (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock {
-	//NSLog(@"parser:%@ foundCDATA:%@", parser, CDATABlock);
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-	//NSLog(@"parser:%@ foundCharacters:%@", parser, string);
 }
 
 - (void)parser:(NSXMLParser *)parser foundComment:(NSString *)comment {
-	//NSLog(@"parser:%@ foundComment:%@", parser, comment);
 }
 
 - (void)parser:(NSXMLParser *)parser foundElementDeclarationWithName:(NSString *)elementName model:(NSString *)model {
-	//NSLog(@"parser:%@ foundElementDeclarationWithName:%@ model:%@", parser, elementName, model);
 }
 
 - (void)parser:(NSXMLParser *)parser foundExternalEntityDeclarationWithName:(NSString *)entityName publicID:(NSString *)publicID systemID:(NSString *)systemID {
-	//NSLog(@"parser:%@ foundExternalEntityDeclarationWithName:%@ publicID:%@ systemID:%@", parser, entityName, publicID, systemID);
 }
 
 - (void)parser:(NSXMLParser *)parser foundIgnorableWhitespace:(NSString *)whitespaceString {
-	//NSLog(@"parser:%@ foundIgnorableWhitespace:%@", parser, whitespaceString);
 }
 
 - (void)parser:(NSXMLParser *)parser foundInternalEntityDeclarationWithName:(NSString *)name value:(NSString *)value {
-	//NSLog(@"parser:%@ foundInternalEntityDeclarationWithName:%@ value:%@", parser, name, value);
 }
 
 - (void)parser:(NSXMLParser *)parser foundNotationDeclarationWithName:(NSString *)name publicID:(NSString *)publicID systemID:(NSString *)systemID {
-	//NSLog(@"parser:%@ foundNotationDeclarationWithName:%@ publicID:%@ systemID:%@", parser, name, publicID, systemID);
 }
 
 - (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data {
-	//NSLog(@"parser:%@ foundProcessingInstructionWithTarget:%@ data:%@", parser, target, data);
 }
 
 - (void)parser:(NSXMLParser *)parser foundUnparsedEntityDeclarationWithName:(NSString *)name publicID:(NSString *)publicID systemID:(NSString *)systemID notationName:(NSString *)notationName {
-	//NSLog(@"parser:%@ foundUnparsedEntityDeclarationWithName:%@ publicID:%@ systemID:%@ notationName:%@", parser, name, publicID, systemID, notationName);
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	//NSLog(@"parser:%@ parseErrorOccurred:\"%@\"", parser, [parseError localizedDescription]);
 }
 
 - (NSData *)parser:(NSXMLParser *)parser resolveExternalEntityName:(NSString *)entityName systemID:(NSString *)systemID {
-	//NSLog(@"parser:%@ resolveExternalEntityName:%@ systemID:%@", parser, entityName, systemID);
 	return nil;
 }
 
 - (void)parser:(NSXMLParser *)parser validationErrorOccurred:(NSError *)validError {
-	//NSLog(@"parser:%@ validationErrorOccurred:\"%@\"", parser, [validError localizedDescription]);
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-	//NSLog(@"parserDidEndDocument:%@", parser);
-//	[containerStack release];
 	containerStack = nil;
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
-	//NSLog(@"parserDidStartDocument:%@", parser);
 	containerStack = [[NSMutableArray alloc] init];
 }
 
