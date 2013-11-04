@@ -34,7 +34,7 @@
 	XCTAssertNotNil(self.twitterBirdFilename, @"cannot find twitter bird test svg asset.");
 }
 
-- (void)testTwitterParse
+- (void)testTwitterBirdParse
 {
 	SVGView *svgView = [SVGView new];
 	[svgView loadFilename:self.twitterBirdFilename];
