@@ -69,7 +69,7 @@
 		0B982F0F18270DD100D4FD76 /* SVGPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGPolygon.m; sourceTree = "<group>"; };
 		0B982F1018270DD100D4FD76 /* SVGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGRect.h; sourceTree = "<group>"; };
 		0B982F1118270DD100D4FD76 /* SVGRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGRect.m; sourceTree = "<group>"; };
-		0B982F1B18270F4400D4FD76 /* README.mdown */ = {isa = PBXFileReference; lastKnownFileType = text; name = README.mdown; path = "../../SVGKit 2/README.mdown"; sourceTree = "<group>"; };
+		0B982F1C1827269000D4FD76 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8B3F486A1090E3370009B6BB /* SVGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGView.h; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0B982F1B18270F4400D4FD76 /* README.mdown */,
+				0B982F1C1827269000D4FD76 /* README.markdown */,
 				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
 				8D15AC360486D014006FF6A4 /* SVGDrawer-Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
